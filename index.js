@@ -3,14 +3,29 @@
 //addEventListner the work the functions of when click the each buttons
 //used anonymous function calling method without function name
 
+
+
+///Play the sounds using add button press input from the mouse
+
 for (var i=0; i<document.querySelectorAll("button.drum").length;i++){
 
     document.querySelectorAll("button.drum")[i].addEventListener("click",function(){
         
 
     var buttonInnerHTML = this.innerHTML;
+    makeSound(buttonInnerHTML);   
 
-      switch (buttonInnerHTML) {
+    });
+}
+
+//Play the sounds using add keypress input from the keyboard
+
+document.addEventListener("keypress", function(event){
+    makeSound(event.key);
+});
+
+function makeSound(key){
+    switch (key) {
         case "w":
             var audio1 = new Audio('sounds/tom-1.mp3');
             audio1.play();
@@ -48,15 +63,9 @@ for (var i=0; i<document.querySelectorAll("button.drum").length;i++){
       
         default: console.log(buttonInnerHTML);
             
-      }
+    }
 
-    });
 }
-
-
-
-
-
 
 
 
